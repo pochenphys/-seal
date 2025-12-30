@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seal Love | 發現海豹的極致可愛</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Noto+Sans+TC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --seal-blue: #e3f2fd;
+            --ocean-deep: #2196f3;
+            --snow-white: #ffffff;
+            --soft-gray: #f8f9fa;
+            --text-color: #455a64;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Quicksand', 'Noto Sans TC', sans-serif;
+            background-color: var(--seal-blue);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* --- 導覽列 --- */
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 800px;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+            border-radius: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--ocean-deep);
+            display: flex;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        .nav-links a:hover { color: var(--ocean-deep); transform: scale(1.1); }
+
+        /* --- Hero 區塊 --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #ffffff 0%, #e3f2fd 100%);
+            padding: 20px;
+        }
+
+        .hero-img {
+            width: 280px;
+            height: 280px;
+            background: url('https://images.unsplash.com/photo-1591485423007-765bde4139ef?auto=format&fit=crop&w=600&q=80') center/cover;
+            border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%; /* 模擬海豹圓潤不規則感 */
+            animation: blob 8s infinite alternate ease-in-out, float 4s infinite ease-in-out;
+            box-shadow: 0 20px 50px rgba(33, 150, 243, 0.2);
+            margin-bottom: 30px;
+        }
+
+        @keyframes blob {
+            0% { border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%; }
+            100% { border-radius: 40% 60% 60% 40% / 40% 60% 40% 60%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: var(--ocean-deep);
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            max-width: 600px;
+        }
+
+        /* --- 特點區塊 --- */
+        section {
+            padding: 100px 10vw;
+            background: var(--snow-white);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+        }
+
+        .cute-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .cute-card {
+            background: var(--soft-gray);
+            padding: 40px;
+            border-radius: 40px;
+            text-align: center;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .cute-card:hover {
+            transform: translateY(-15px);
+            background: #fff;
+            border-color: var(--seal-blue);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* --- 畫廊區塊 --- */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            background: var(--seal-blue);
+            padding: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(0.98);
+            filter: brightness(0.9);
+        }
+
+        /* --- 呼籲行動 --- */
+        .cta {
+            background: var(--ocean-deep);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .cta button {
+            padding: 15px 40px;
+            border: none;
+            background: white;
+            color: var(--ocean-deep);
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            margin-top: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .cta button:hover {
+            transform: scale(1.1) rotate(3deg);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: var(--soft-gray);
+            font-size: 0.9rem;
+            color: #90a4ae;
+        }
+
+        /* --- 手機版適配 --- */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav { padding: 10px 20px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">🦭 SealPuffy</div>
+        <div class="nav-links">
+            <a href="#home">首頁</a>
+            <a href="#why">為何可愛</a>
+            <a href="#gallery">萌照特寫</a>
+            <a href="#save">保護牠們</a>
+        </div>
+    </nav>
+
+    <div id="home" class="hero">
+        <div class="hero-img"></div>
+        <h1>有一種萌，叫海豹</h1>
+        <p>圓滾滾的身軀、無辜的大眼睛，讓我們一起墜入這充滿脂肪與療癒感的冰涼世界。</p>
+    </div>
+
+    <section id="why">
+        <h2 class="section-title">可愛的秘密</h2>
+        <div class="cute-grid">
+            <div class="cute-card">
+                <span class="icon">🎾</span>
+                <h3>完美圓球體</h3>
+                <p>看起來像一顆充滿彈性的圓球，不管是躺著、滾著還是彈著，都散發著極致的療癒感。</p>
+            </div>
+            <div class="cute-card">
+                <span class="icon">🥺</span>
+                <h3>無辜水汪汪</h3>
+                <p>那雙漆黑發亮的大眼睛，彷彿隨時都在對你進行電力全開的眼神攻勢。</p>
+            </div>
+            <div class="cute-card">
+                <span class="icon">💤</span>
+                <h3>軟爛哲學</h3>
+                <p>海豹示範了最高境界的放鬆——只要冰塊夠涼，哪裡都可以是床。</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="gallery" class="gallery">
+        <img src="https://images.unsplash.com/photo-1609090899817-81290571b744?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Seal 1">
+        <img src="https://images.unsplash.com/photo-1557657043-23eec69b89c9?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Seal 2">
+        <img src="https://images.unsplash.com/photo-1587738972117-c12f8389f1d4?q=80&w=1176&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Seal 3">
+        <img src="https://images.unsplash.com/photo-1619323424567-4d7a36c8bf42?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Seal 4">
+    </div>
+
+    <section id="save" class="cta">
+        <h2>守護這份軟萌</h2>
+        <p>氣候變遷正讓海豹的冰川家園逐漸消失。我們可以從小事做起，保護地球，留住牠們的笑容。</p>
+        <button onclick="alert('感謝您的愛心！讓我們一起愛護地球環境！')">我有被療癒到，我想了解更多</button>
+    </section>
+
+    <footer>
+        &copy; 2025 SealPuffy Studio. 純屬療癒，版權所有。🦭
+    </footer>
+
+    <script>
+        // 簡單的滾動偵測動畫
+        const cards = document.querySelectorAll('.cute-card');
+        
+        window.addEventListener('scroll', () => {
+            const triggerBottom = window.innerHeight / 5 * 4;
+            
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                
+                if(cardTop < triggerBottom) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // 初始化樣式
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease-out';
+        });
+    </script>
+</body>
+</html>
